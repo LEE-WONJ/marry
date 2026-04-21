@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💍 이원재 & 박가연 결혼준비</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fff8f4;
+  --white: #ffffff;
+  --border: rgba(200,120,60,0.13);
+  --primary: #c45e2a;
+  --primary-dark: #8b3e14;
+  --primary-light: #fff0e8;
+  --gold: #d4a017;
+  --gold-light: #fffbe8;
+  --teal: #0d7377;
+  --teal-light: #e6f7f7;
+  --red: #e02020;
+  --red-light: #fff0f0;
+  --green: #1a7a4a;
+  --green-light: #edfaf3;
+  --purple: #7c3aed;
+  --purple-light: #f5f0ff;
+  --text: #1a0a00;
+  --text2: #5a3820;
+  --text3: #b09070;
+  --surface: #fdf0e4;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(160deg, #1a0800 0%, #6b2800 50%, #c45e2a 100%);
+  padding: 52px 28px 48px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero-deco {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(255,180,80,0.12) 0%, transparent 60%);
+}
+.hero-emoji { font-size: 44px; margin-bottom: 14px; display: block; letter-spacing: 4px; }
+.hero-names {
+  font-size: 34px; font-weight: 900; color: #fff;
+  letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 6px;
+}
+.hero-names .amp { color: #f4b98a; font-size: 28px; }
+.hero-date {
+  font-family: 'DM Mono', monospace; font-size: 12px;
+  color: rgba(255,255,255,0.45); letter-spacing: 0.14em;
+  margin-bottom: 32px;
+}
+.hero-kpi {
+  display: flex; justify-content: center;
+  gap: 0; flex-wrap: wrap;
+  background: rgba(255,255,255,0.07);
+  border-radius: 18px; padding: 20px 0;
+  border: 1px solid rgba(255,255,255,0.10);
+  max-width: 600px; margin: 0 auto;
+}
+.kpi-item { flex: 1; min-width: 140px; padding: 4px 20px; border-right: 1px solid rgba(255,255,255,0.12); }
+.kpi-item:last-child { border-right: none; }
+.kpi-emoji { font-size: 22px; display: block; margin-bottom: 4px; }
+.kpi-num { font-size: 20px; font-weight: 900; color: #f4b98a; letter-spacing: -0.02em; line-height: 1; }
+.kpi-label { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 3px; }
+
+/* ─── PAGE ─── */
+.page { max-width: 760px; margin: 0 auto; padding: 28px 16px 72px; }
+
+/* ─── PROGRESS ─── */
+.progress-section {
+  background: var(--white); border-radius: 18px;
+  border: 1.5px solid var(--border); padding: 22px 24px;
+  margin-bottom: 20px;
+}
+.progress-title { font-size: 13px; font-weight: 700; color: var(--text2); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.prog-row { margin-bottom: 12px; }
+.prog-row:last-child { margin-bottom: 0; }
+.prog-label-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+.prog-name { font-size: 13px; font-weight: 500; color: var(--text); }
+.prog-val { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text2); font-weight: 500; }
+.prog-bg { height: 10px; background: var(--surface); border-radius: 5px; overflow: hidden; }
+.prog-fill { height: 100%; border-radius: 5px; }
+
+/* ─── SUMMARY CARDS ─── */
+.summary-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-bottom: 20px;
+}
+.sum-card {
+  border-radius: 18px; padding: 20px;
+  border: 1.5px solid var(--border);
+  position: relative; overflow: hidden;
+  transition: transform .15s;
+}
+.sum-card:active { transform: scale(0.98); }
+.sum-emoji { font-size: 32px; display: block; margin-bottom: 8px; }
+.sum-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: var(--text3); text-transform: uppercase; margin-bottom: 4px; }
+.sum-value { font-size: 22px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 2px; }
+.sum-sub { font-size: 11.5px; opacity: 0.65; }
+
+/* ─── ACCORDION ─── */
+.accordion { display: flex; flex-direction: column; gap: 12px; }
+
+.acc-item {
+  background: var(--white); border-radius: 18px;
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow .2s;
+}
+.acc-item.open { box-shadow: 0 6px 24px rgba(196,94,42,0.12); }
+
+.acc-header {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 20px; cursor: pointer;
+  user-select: none; -webkit-user-select: none;
+  transition: background .15s;
+}
+.acc-header:active { background: var(--surface); }
+
+.acc-icon-wrap {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; flex-shrink: 0;
+}
+.acc-info { flex: 1; min-width: 0; }
+.acc-title { font-size: 16px; font-weight: 900; color: var(--text); letter-spacing: -0.01em; }
+.acc-desc { font-size: 12px; color: var(--text3); margin-top: 1px; }
+.acc-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+.acc-total { font-size: 17px; font-weight: 900; letter-spacing: -0.02em; }
+.acc-arrow {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--surface); display: flex; align-items: center;
+  justify-content: center; font-size: 12px; color: var(--text3);
+  transition: transform .25s, background .2s; flex-shrink: 0;
+}
+.acc-item.open .acc-arrow { transform: rotate(180deg); background: var(--primary); color: #fff; }
+
+.acc-body { display: none; border-top: 1.5px solid var(--border); }
+.acc-item.open .acc-body { display: block; }
+
+/* ─── ITEMS ─── */
+.item-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 20px; border-bottom: 1px solid var(--border);
+  transition: background .12s;
+}
+.item-row:last-child { border-bottom: none; }
+.item-row:active { background: var(--surface); }
+.item-emoji { font-size: 22px; flex-shrink: 0; margin-top: 2px; width: 28px; text-align: center; }
+.item-body { flex: 1; min-width: 0; }
+.item-name { font-size: 14px; font-weight: 700; color: var(--text); }
+.item-meta { font-size: 12px; color: var(--text3); margin-top: 2px; }
+.item-right { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; flex-shrink: 0; }
+.item-total { font-family: 'DM Mono', monospace; font-size: 15px; font-weight: 700; }
+.item-amounts { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.amt-chip {
+  font-family: 'DM Mono', monospace; font-size: 10.5px; font-weight: 500;
+  padding: 2px 8px; border-radius: 6px;
+}
+
+/* ─── BADGES ─── */
+.badge {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 10.5px; font-weight: 700; padding: 3px 10px;
+  border-radius: 100px; font-family: 'DM Mono', monospace;
+  white-space: nowrap;
+}
+.b-done     { background: var(--green-light); color: var(--green); }
+.b-contract { background: #fff8e6; color: #b07800; }
+.b-expect   { background: var(--purple-light); color: var(--purple); }
+.b-pending  { background: var(--surface); color: var(--text3); }
+.b-cash     { background: var(--red-light); color: var(--red); }
+.b-include  { background: var(--teal-light); color: var(--teal); }
+
+/* ─── SUBTOTAL ─── */
+.subtotal-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 20px; background: var(--surface);
+}
+.subtotal-label { font-size: 13px; font-weight: 700; color: var(--text2); }
+.subtotal-val { font-family: 'DM Mono', monospace; font-size: 17px; font-weight: 900; }
+
+/* ─── MEMO ─── */
+.memo-section {
+  background: var(--gold-light); border: 1.5px solid rgba(212,160,23,0.2);
+  border-radius: 18px; padding: 20px; margin-top: 20px;
+}
+.memo-title { font-size: 15px; font-weight: 900; color: var(--text); margin-bottom: 14px; }
+.memo-list { display: flex; flex-direction: column; gap: 10px; }
+.memo-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--white); border-radius: 12px; padding: 12px 14px;
+  border: 1px solid rgba(212,160,23,0.15);
+}
+.memo-e { font-size: 20px; flex-shrink: 0; }
+.memo-body {}
+.memo-mname { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.memo-mtext { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+/* ─── LEGEND ─── */
+.legend {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  padding: 16px 20px; border-top: 1.5px solid var(--border);
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  text-align: center; margin-top: 36px;
+  font-size: 12px; color: var(--text3); line-height: 1.8;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 480px) {
+  .hero-names { font-size: 26px; }
+  .kpi-item { min-width: 110px; padding: 4px 12px; }
+  .kpi-num { font-size: 16px; }
+  .summary-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .sum-value { font-size: 18px; }
+  .acc-total { font-size: 15px; }
+  .item-total { font-size: 13px; }
+}
+
+/* ─── ANIM ─── */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.acc-body { animation: slideDown .2s ease; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-deco"></div>
+  <span class="hero-emoji">💍 👗 🌸</span>
+  <div class="hero-names">이원재 <span class="amp">♡</span> 박가연</div>
+  <div class="hero-date">WEDDING BUDGET TRACKER · 2026</div>
+  <div class="hero-kpi">
+    <div class="kpi-item">
+      <span class="kpi-emoji">💰</span>
+      <div class="kpi-num">3,596만원</div>
+      <div class="kpi-label">총 결혼 비용</div>
+    </div>
+    <div class="kpi-item">
+      <span class="kpi-emoji">✅</span>
+      <div class="kpi-num">482만원</div>
+      <div class="kpi-label">계약금 납부</div>
+    </div>
+    <div class="kpi-item">
+      <span class="kpi-emoji">📋</span>
+      <div class="kpi-num">13.4%</div>
+      <div class="kpi-label">납부 진행률</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- 진행률 -->
+  <div class="progress-section">
+    <div class="progress-title">📊 카테고리별 비용 비중</div>
+    <div class="prog-row">
+      <div class="prog-label-row">
+        <span class="prog-name">🏛️ 본식 (홀·스냅·식대)</span>
+        <span class="prog-val">27,078,000원 · 75.3%</span>
+      </div>
+      <div class="prog-bg"><div class="prog-fill" style="width:75.3%;background:linear-gradient(90deg,#c45e2a,#e8905a)"></div></div>
+    </div>
+    <div class="prog-row">
+      <div class="prog-label-row">
+        <span class="prog-name">📸 스드메</span>
+        <span class="prog-val">3,930,000원 · 10.9%</span>
+      </div>
+      <div class="prog-bg"><div class="prog-fill" style="width:10.9%;background:linear-gradient(90deg,#d4a017,#f0c040)"></div></div>
+    </div>
+    <div class="prog-row">
+      <div class="prog-label-row">
+        <span class="prog-name">💍 예물 (웨딩밴드)</span>
+        <span class="prog-val">3,000,000원 · 8.3%</span>
+      </div>
+      <div class="prog-bg"><div class="prog-fill" style="width:8.3%;background:linear-gradient(90deg,#7c3aed,#a060f0)"></div></div>
+    </div>
+    <div class="prog-row">
+      <div class="prog-label-row">
+        <span class="prog-name">👘 혼주 (한복·메이크업)</span>
+        <span class="prog-val">1,100,000원 · 3.1%</span>
+      </div>
+      <div class="prog-bg"><div class="prog-fill" style="width:3.1%;background:linear-gradient(90deg,#0d7377,#20a0a8)"></div></div>
+    </div>
+    <div class="prog-row">
+      <div class="prog-label-row">
+        <span class="prog-name">🎁 기타·답례품</span>
+        <span class="prog-val">850,000원 · 2.4%</span>
+      </div>
+      <div class="prog-bg"><div class="prog-fill" style="width:2.4%;background:linear-gradient(90deg,#888,#aaa)"></div></div>
+    </div>
+  </div>
+
+  <!-- 요약 카드 -->
+  <div class="summary-grid">
+    <div class="sum-card" style="background:var(--primary-light);border-color:rgba(196,94,42,0.2)">
+      <span class="sum-emoji">💒</span>
+      <div class="sum-label">본식 합계</div>
+      <div class="sum-value" style="color:var(--primary)">2,707만원</div>
+      <div class="sum-sub" style="color:var(--primary)">식대·홀·스냅 포함</div>
+    </div>
+    <div class="sum-card" style="background:var(--gold-light);border-color:rgba(212,160,23,0.2)">
+      <span class="sum-emoji">💐</span>
+      <div class="sum-label">결혼식 합계</div>
+      <div class="sum-value" style="color:var(--gold)">888만원</div>
+      <div class="sum-sub" style="color:var(--gold)">스드메·예물·기타</div>
+    </div>
+    <div class="sum-card" style="background:var(--green-light);border-color:rgba(26,122,74,0.15)">
+      <span class="sum-emoji">✅</span>
+      <div class="sum-label">계약금 납부</div>
+      <div class="sum-value" style="color:var(--green)">482만원</div>
+      <div class="sum-sub" style="color:var(--green)">납부 완료</div>
+    </div>
+    <div class="sum-card" style="background:var(--red-light);border-color:rgba(224,32,32,0.12)">
+      <span class="sum-emoji">📌</span>
+      <div class="sum-label">총 결혼 비용</div>
+      <div class="sum-value" style="color:var(--red)">3,596만원</div>
+      <div class="sum-sub" style="color:var(--red)">전체 예산</div>
+    </div>
+  </div>
+
+  <!-- ACCORDION -->
+  <div class="accordion">
+
+    <!-- 1. 본식 -->
+    <div class="acc-item" id="acc1">
+      <div class="acc-header" onclick="toggle('acc1')">
+        <div class="acc-icon-wrap" style="background:var(--primary-light)">🏛️</div>
+        <div class="acc-info">
+          <div class="acc-title">본식</div>
+          <div class="acc-desc">홀 · 스냅 · 식대 · DVD</div>
+        </div>
+        <div class="acc-right">
+          <div class="acc-total" style="color:var(--primary)">27,078,000원</div>
+          <span class="badge b-contract">8항목</span>
+        </div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="acc-body">
+
+        <div class="item-row">
+          <div class="item-emoji">🏨</div>
+          <div class="item-body">
+            <div class="item-name">홀 게약금</div>
+            <div class="item-meta">아반티호텔 · 잔금 2027.01.31</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--primary)">6,500,000원</div>
+            <div class="item-amounts">
+              <span class="amt-chip" style="background:var(--green-light);color:var(--green)">계약금 2,100,000</span>
+              <span class="amt-chip" style="background:var(--surface);color:var(--text3)">잔금 4,400,000</span>
+            </div>
+            <span class="badge b-contract">계약완료</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">📷</div>
+          <div class="item-body">
+            <div class="item-name">본식스냅</div>
+            <div class="item-meta">담하우그린 · 계약 2026.04.07</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--primary)">990,000원</div>
+            <div class="item-amounts">
+              <span class="amt-chip" style="background:var(--green-light);color:var(--green)">계약금 300,000</span>
+              <span class="amt-chip" style="background:var(--surface);color:var(--text3)">잔금 690,000</span>
+            </div>
+            <span class="badge b-contract">계약완료</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">📱</div>
+          <div class="item-body">
+            <div class="item-name">아이폰 스냅</div>
+            <div class="item-meta">미계약</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--text2)">400,000원</div>
+            <span class="badge b-pending">미계약</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">🎞️</div>
+          <div class="item-body">
+            <div class="item-name">DVD</div>
+            <div class="item-meta">하이라이트필름 · 계약 2026.04.07</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--primary)">418,000원</div>
+            <div class="item-amounts">
+              <span class="amt-chip" style="background:var(--green-light);color:var(--green)">계약금 100,000</span>
+              <span class="amt-chip" style="background:var(--surface);color:var(--text3)">잔금 318,000</span>
+            </div>
+            <span class="badge b-contract">계약완료</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">🍽️</div>
+          <div class="item-body">
+            <div class="item-name">식대</div>
+            <div class="item-meta">아반티호텔 · 최소보증인원 200명</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--red)">18,170,000원</div>
+            <span class="badge b-pending">미결제</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">🎤</div>
+          <div class="item-body">
+            <div class="item-name">사례비 (축가·사회자)</div>
+            <div class="item-meta">미정</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--text3)">미정</div>
+            <span class="badge b-pending">미정</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">💐</div>
+          <div class="item-body">
+            <div class="item-name">부케</div>
+            <div class="item-meta">예상 금액</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--purple)">250,000원</div>
+            <span class="badge b-expect">예상</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">🙋</div>
+          <div class="item-body">
+            <div class="item-name">웰퍼 이모님</div>
+            <div class="item-meta">예상 금액</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--purple)">350,000원</div>
+            <span class="badge b-expect">예상</span>
+          </div>
+        </div>
+
+        <div class="subtotal-row">
+          <div class="subtotal-label">🏛️ 본식 소계</div>
+          <div class="subtotal-val" style="color:var(--primary)">27,078,000원</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 스드메 -->
+    <div class="acc-item" id="acc2">
+      <div class="acc-header" onclick="toggle('acc2')">
+        <div class="acc-icon-wrap" style="background:var(--gold-light)">📸</div>
+        <div class="acc-info">
+          <div class="acc-title">스드메</div>
+          <div class="acc-desc">스튜디오 · 드레스 · 메이크업 · 촬영</div>
+        </div>
+        <div class="acc-right">
+          <div class="acc-total" style="color:var(--gold)">3,930,000원</div>
+          <span class="badge b-contract">9항목</span>
+        </div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="acc-body">
+
+        <div class="item-row">
+          <div class="item-emoji">🌳</div>
+          <div class="item-body">
+            <div class="item-name">아외스냅</div>
+            <div class="item-meta">이브어 스냅 · 6/30 촬영</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--primary)">650,000원</div>
+            <div class="item-amounts">
+              <span class="amt-chip" style="background:var(--green-light);color:var(--green)">계약금 325,000</span>
+              <span class="amt-chip" style="background:var(--surface);color:var(--text3)">잔금 325,000</span>
+            </div>
+            <span class="badge b-contract">계약완료</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">💇</div>
+          <div class="item-body">
+            <div class="item-name">아외스냅 헤어 추가</div>
+            <div class="item-meta">아정헤어 · 6/30 촬영, 3시간</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--primary)">350,000원</div>
+            <div class="item-amounts">
+              <span class="amt-chip" style="background:var(--green-light);color:var(--green)">계약금 100,000</span>
+              <span class="amt-chip" style="background:var(--surface);color:var(--text3)">잔금 250,000</span>
+            </div>
+            <span class="badge b-contract">계약완료</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">🏢</div>
+          <div class="item-body">
+            <div class="item-name">스튜디오 대관료</div>
+            <div class="item-meta">wwi스튜디오 · B급 예상</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--purple)">200,000원</div>
+            <span class="badge b-expect">예상</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">🌹</div>
+          <div class="item-body">
+            <div class="item-name">촬영용 부케</div>
+            <div class="item-meta">예상 금액</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--purple)">250,000원</div>
+            <span class="badge b-expect">예상</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">🤵</div>
+          <div class="item-body">
+            <div class="item-name">신랑 촬영복·에복</div>
+            <div class="item-meta">악스올으 · 본식/촬영 2벌</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--primary)">550,000원</div>
+            <div class="item-amounts">
+              <span class="amt-chip" style="background:var(--green-light);color:var(--green)">계약금 100,000</span>
+              <span class="amt-chip" style="background:var(--surface);color:var(--text3)">잔금 450,000</span>
+            </div>
+            <span class="badge b-contract">계약완료</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">👰</div>
+          <div class="item-body">
+            <div class="item-name">신부 촬영복</div>
+            <div class="item-meta">소노에 포함 (본식/촬영 신부 포함)</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--teal)">755,000원</div>
+            <span class="badge b-include">포함</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">💄</div>
+          <div class="item-body">
+            <div class="item-name">메이크업</div>
+            <div class="item-meta">얼리비용</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--text2)">55,000원</div>
+            <span class="badge b-pending">미정</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">👗</div>
+          <div class="item-body">
+            <div class="item-name">드레스</div>
+            <div class="item-meta">소노 고민중 · 본식/촬영 포함, 환영드레스 포함</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--purple)">1,620,000원</div>
+            <span class="badge b-expect">예상</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">💵</div>
+          <div class="item-body">
+            <div class="item-name">드레스 엘퍼비용</div>
+            <div class="item-meta">⚠️ 당일 현금 준비 필요</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--red)">350,000원</div>
+            <span class="badge b-cash">현금준비</span>
+          </div>
+        </div>
+
+        <div class="subtotal-row">
+          <div class="subtotal-label">📸 스드메 소계</div>
+          <div class="subtotal-val" style="color:var(--gold)">3,930,000원</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 혼주 -->
+    <div class="acc-item" id="acc3">
+      <div class="acc-header" onclick="toggle('acc3')">
+        <div class="acc-icon-wrap" style="background:var(--teal-light)">👘</div>
+        <div class="acc-info">
+          <div class="acc-title">혼주 · 청첩장</div>
+          <div class="acc-desc">양가 한복 · 메이크업 · 청첩장</div>
+        </div>
+        <div class="acc-right">
+          <div class="acc-total" style="color:var(--teal)">1,100,000원</div>
+          <span class="badge b-expect">예상포함</span>
+        </div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="acc-body">
+
+        <div class="item-row">
+          <div class="item-emoji">👘</div>
+          <div class="item-body">
+            <div class="item-name">양가 어머님 한복</div>
+            <div class="item-meta">예상 금액</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--purple)">600,000원</div>
+            <span class="badge b-expect">예상</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">💄</div>
+          <div class="item-body">
+            <div class="item-name">혼주 메이크업</div>
+            <div class="item-meta">예상 금액</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--purple)">500,000원</div>
+            <span class="badge b-expect">예상</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">💌</div>
+          <div class="item-body">
+            <div class="item-name">청첩장 (350장)</div>
+            <div class="item-meta">미정</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--text3)">미정</div>
+            <span class="badge b-pending">미정</span>
+          </div>
+        </div>
+
+        <div class="subtotal-row">
+          <div class="subtotal-label">👘 혼주·청첩장 소계</div>
+          <div class="subtotal-val" style="color:var(--teal)">1,100,000원</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. 예물·기타 -->
+    <div class="acc-item" id="acc4">
+      <div class="acc-header" onclick="toggle('acc4')">
+        <div class="acc-icon-wrap" style="background:var(--purple-light)">💍</div>
+        <div class="acc-info">
+          <div class="acc-title">예물 · 기타</div>
+          <div class="acc-desc">웨딩밴드 · 선물 · 답례품</div>
+        </div>
+        <div class="acc-right">
+          <div class="acc-total" style="color:var(--purple)">3,000,000원+</div>
+          <span class="badge b-expect">예상포함</span>
+        </div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="acc-body">
+
+        <div class="item-row">
+          <div class="item-emoji">💒</div>
+          <div class="item-body">
+            <div class="item-name">웨딩밴드</div>
+            <div class="item-meta">소그노 고민중?</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--purple)">3,000,000원</div>
+            <span class="badge b-expect">예상</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">🎁</div>
+          <div class="item-body">
+            <div class="item-name">양가 상견례 선물</div>
+            <div class="item-meta">미정</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--text3)">미정</div>
+            <span class="badge b-pending">미정</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">🎀</div>
+          <div class="item-body">
+            <div class="item-name">양가 집안 인사 선물</div>
+            <div class="item-meta">미정</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--text3)">미정</div>
+            <span class="badge b-pending">미정</span>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-emoji">🧧</div>
+          <div class="item-body">
+            <div class="item-name">답례품</div>
+            <div class="item-meta">소린</div>
+          </div>
+          <div class="item-right">
+            <div class="item-total" style="color:var(--text3)">미정</div>
+            <span class="badge b-pending">미정</span>
+          </div>
+        </div>
+
+        <div class="subtotal-row">
+          <div class="subtotal-label">💍 예물·기타 소계</div>
+          <div class="subtotal-val" style="color:var(--purple)">3,000,000원+</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /accordion -->
+
+  <!-- 메모 -->
+  <div class="memo-section">
+    <div class="memo-title">📝 주요 체크사항</div>
+    <div class="memo-list">
+      <div class="memo-item">
+        <div class="memo-e">⚠️</div>
+        <div class="memo-body">
+          <div class="memo-mname">드레스 엘퍼비용 현금 준비</div>
+          <div class="memo-mtext">당일 현금 350,000원 반드시 준비 필요</div>
+        </div>
+      </div>
+      <div class="memo-item">
+        <div class="memo-e">📅</div>
+        <div class="memo-body">
+          <div class="memo-mname">아외스냅 촬영일 · 6월 30일</div>
+          <div class="memo-mtext">이브어 스냅 + 아정헤어 3시간 포함</div>
+        </div>
+      </div>
+      <div class="memo-item">
+        <div class="memo-e">🍽️</div>
+        <div class="memo-body">
+          <div class="memo-mname">식대 최소보증인원 200명</div>
+          <div class="memo-mtext">아반티호텔 기준 · 18,170,000원 예상</div>
+        </div>
+      </div>
+      <div class="memo-item">
+        <div class="memo-e">💰</div>
+        <div class="memo-body">
+          <div class="memo-mname">홀 잔금 납부 기한 · 2027년 1월 31일</div>
+          <div class="memo-mtext">잔금 4,400,000원 준비 필요</div>
+        </div>
+      </div>
+      <div class="memo-item">
+        <div class="memo-e">🏪</div>
+        <div class="memo-body">
+          <div class="memo-mname">스튜디오 B급 대관료 확인 필요</div>
+          <div class="memo-mtext">wwi스튜디오 · 예상 200,000원</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 범례 -->
+  <div style="background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:16px 18px;margin-top:16px;">
+    <div style="font-size:12px;font-weight:700;color:var(--text2);margin-bottom:10px;">🏷️ 상태 표시 안내</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+      <span class="badge b-contract">계약완료</span>
+      <span class="badge b-expect">예상금액</span>
+      <span class="badge b-pending">미정</span>
+      <span class="badge b-cash">현금준비</span>
+      <span class="badge b-include">포함</span>
+      <span class="badge b-done">완납</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div style="font-size:20px;margin-bottom:6px;">💍 🌸 💍</div>
+    <div>이원재 & 박가연 결혼준비 예산 트래커</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;margin-top:2px;">TOTAL ₩35,958,000 · UPDATED 2026.04</div>
+  </div>
+
+</div>
+
+<script>
+function toggle(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+// 첫 번째 항목 기본 열기
+document.getElementById('acc1').classList.add('open');
+</script>
+</body>
+</html>
